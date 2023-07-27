@@ -66,6 +66,12 @@ sudo mkfs.ext4 /dev/mapper/${LOOPDEV}p4 -I 512 -L userdata
 sync
 
 sudo kpartx -d "/dev/${LOOPDEV}"
+
+cd ${OUTDIR}
+rm -f ${IMGNAME}.zip
+zip ${IMGNAME}.zip ${IMGNAME}
+cd -
+
 echo "Done, created ${OUTDIR}/${IMGNAME}!"
 
 exit 0
